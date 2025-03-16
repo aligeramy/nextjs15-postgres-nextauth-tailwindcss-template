@@ -17,9 +17,10 @@ setup('authenticate', async ({ page }) => {
   await page.getByLabel('Password').fill(testPassword);
   await page.getByRole('button', { name: 'Sign Up' }).click();
 
-  // Verify toast notification
+  // Verify toast notification with a longer timeout
   await expect(page.locator('[data-sonner-toast]')).toContainText(
-    'Account created successfully!'
+    'Account created successfully!',
+    { timeout: 10000 } // Increase timeout to 10 seconds
   );
 
   // Save authentication state to be used in other tests

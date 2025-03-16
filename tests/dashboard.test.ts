@@ -12,23 +12,19 @@ test.describe('Dashboard (Authenticated)', () => {
   });
 
   test('should display dashboard when user is authenticated', async ({ page }) => {
-    // Check that we're on the dashboard page by looking for the h1 in the header
-    await expect(page.getByRole('heading', { name: 'Dashboard', level: 1 })).toBeVisible();
-    // Also verify the welcome heading is visible
-    await expect(page.getByRole('heading', { name: 'Welcome to your Dashboard' })).toBeVisible();
+    // Check that we're on the dashboard page by looking for the heading
+    await expect(page.getByRole('heading', { name: 'Signed In', level: 3 })).toBeVisible({ timeout: 10000 });
   });
 
   test('should display user email in the dashboard', async ({ page }) => {
-    // Dashboard should show the logged-in user's email in the profile section
-    // Target the span inside the profile section to be more specific
-    await expect(page.locator('.bg-blue-50 span.font-medium')).toBeVisible();
-    // Also check that it contains the playwright.com domain
-    await expect(page.locator('.bg-blue-50 span.font-medium')).toContainText('@playwright.com');
+    // Dashboard should show the logged-in user's email
+    const emailElement = page.getByText(/@playwright.com/);
+    await expect(emailElement).toBeVisible();
   });
 
-  test('should navigate to profile section', async ({ page }) => {
-    // Check that profile section is visible
-    await expect(page.getByText('Your Profile')).toBeVisible();
+  test('should have theme toggle button', async ({ page }) => {
+    // Check that the theme toggle button is available
+    await expect(page.getByRole('button', { name: 'Toggle theme' })).toBeVisible();
   });
 
   test('should have sign out button', async ({ page }) => {

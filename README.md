@@ -366,45 +366,9 @@ For other hosting providers, ensure you:
 3. Configure your database connection
 4. Deploy the built application
 
-## 📚 Learn More
 
-<div align="center">
-  <table>
-    <tr>
-      <td align="center" width="33%">
-        <img src="https://nextjs.org/static/favicon/favicon-32x32.png" alt="Next.js" width="32" height="32"><br>
-        <a href="https://nextjs.org/docs">Next.js</a>
-      </td>
-      <td align="center" width="33%">
-        <img src="https://authjs.dev/img/favicon.png" alt="NextAuth" width="32" height="32"><br>
-        <a href="https://authjs.dev/">NextAuth</a>
-      </td>
-      <td align="center" width="33%">
-        <img src="https://orm.drizzle.team/favicon.svg" alt="Drizzle" width="32" height="32"><br>
-        <a href="https://orm.drizzle.team/">Drizzle ORM</a>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="https://playwright.dev/img/playwright-logo.svg" alt="Playwright" width="32" height="32"><br>
-        <a href="https://playwright.dev/">Playwright</a>
-      </td>
-      <td align="center">
-        <img src="https://tailwindcss.com/favicons/favicon-32x32.png" alt="Tailwind CSS" width="32" height="32"><br>
-        <a href="https://tailwindcss.com/docs">Tailwind CSS</a>
-      </td>
-      <td align="center">
-        <img src="https://www.typescriptlang.org/favicon-32x32.png" alt="TypeScript" width="32" height="32"><br>
-        <a href="https://www.typescriptlang.org/docs/">TypeScript</a>
-      </td>
-    </tr>
-  </table>
-</div>
-
----
 
 <div align="center">
   <p>Made with ❤️ for Next.js developers</p>
   <p>MIT License</p>
 </div>
-# nextjs15-postgres-nextauth-tailwindcss-template

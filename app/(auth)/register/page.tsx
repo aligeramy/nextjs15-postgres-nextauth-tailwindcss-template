@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useActionState, useEffect, useState } from 'react';
+import { useActionState, useEffect, useState, Suspense } from 'react';
 import { toast } from 'sonner';
 
 import { AuthForm } from '@/components/auth-form';
@@ -10,7 +10,7 @@ import { SubmitButton } from '@/components/submit-button';
 
 import { register, type RegisterActionState } from '../actions';
 
-export default function Page() {
+function RegisterForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams.get('from') || '/';
@@ -34,7 +34,6 @@ export default function Page() {
       toast.error('Failed validating your submission!');
     } else if (state.status === 'success') {
       toast.success('Account created successfully!');
-
       setIsSuccessful(true);
       router.push(from);
     }
@@ -69,5 +68,13 @@ export default function Page() {
         </AuthForm>
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="flex h-dvh w-screen items-center justify-center">Loading...</div>}>
+      <RegisterForm />
+    </Suspense>
   );
 }

@@ -22,7 +22,7 @@ export default async function DashboardPage() {
             });
           }}
         >
-          <Button type="submit" variant="default" className="w-full cursor-pointer min-w-80 bg-black hover:bg-gray-600 transition-colors text-white">
+          <Button type="submit" variant="default" className="w-full cursor-pointer min-w-80 bg-primary dark:bg-primary/90 transition-colors">
             Sign out
           </Button>
         </Form>

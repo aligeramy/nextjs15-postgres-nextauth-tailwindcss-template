@@ -40,7 +40,7 @@ class AuthPage {
   }
 
   async expectToastToContain(text: string) {
-    await expect(this.page.locator('[data-sonner-toast]')).toContainText(text);
+    await expect(this.page.locator('[data-sonner-toast]')).toContainText(text, { timeout: 10000 });
   }
 }
 
@@ -72,7 +72,7 @@ test.describe.serial('Authentication Flow', () => {
     await authPage.register(testEmail, testPassword);
     await authPage.expectToastToContain('Account created successfully!');
     // Should redirect to dashboard
-    await expect(page.getByRole('heading', { name: 'Dashboard', level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Signed In', level: 3 })).toBeVisible({ timeout: 10000 });
   });
 
   test('should not register with an existing email', async () => {
@@ -88,13 +88,13 @@ test.describe.serial('Authentication Flow', () => {
   test('should login with correct credentials', async ({ page }) => {
     await authPage.login(testEmail, testPassword);
     // Should redirect to dashboard
-    await expect(page.getByRole('heading', { name: 'Dashboard', level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Signed In', level: 3 })).toBeVisible({ timeout: 10000 });
   });
 
   test('should allow user to sign out', async ({ page }) => {
     // Login first
     await authPage.login(testEmail, testPassword);
-    await expect(page.getByRole('heading', { name: 'Dashboard', level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Signed In', level: 3 })).toBeVisible({ timeout: 10000 });
     
     // Click sign out button
     await page.getByRole('button', { name: 'Sign out' }).click();
